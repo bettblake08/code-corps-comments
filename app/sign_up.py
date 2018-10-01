@@ -2,7 +2,7 @@ import re
 from db import users
 
 def sign_up():
-    print("Please input your details:")
+    print("Please input your details: ")
     
     name = enter_name()
     password = enter_password()
@@ -18,10 +18,9 @@ def sign_up():
     })
 
     print("Sign up succeeded!")
-    print(users)
 
 def enter_name():
-    name = raw_input("What is your name?")
+    name = raw_input("What is your name? ")
 
     if name == "":
         print("Invalid username. Please re-enter details")
@@ -31,7 +30,7 @@ def enter_name():
 
 def enter_password():
     password = raw_input(
-        "What is your password?")
+        "What is your password? ")
 
     if password == "" or not test_password(password):
         print(
@@ -55,7 +54,7 @@ def test_password(password):
     return bool(pattern.match(password, 0))
 
 def enter_role():
-    role = raw_input("What is your role?")
+    role = raw_input("What is your role? ")
 
     roleId = 0
 

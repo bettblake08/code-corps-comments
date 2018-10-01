@@ -1,11 +1,12 @@
+from db import users
+
 def log_in():
     """Login"""
     print('*******************************Login*******************************')
     #get data from data structure
-    users = [{'id': 1, 'username': "emmanuel", 'password': "pass", 'role': 3, 'status': False}, {'id': 2, 'username': "chayu", 'password': "password", 'role': 3, 'status': False}]
 
-    username = input('Enter your name: ')
-    password = input('Enter your password: ')
+    username = raw_input('Enter your name: ')
+    password = raw_input('Enter your password: ')
     #check in dict for user
     for user in users:
         if user['username'] == username:

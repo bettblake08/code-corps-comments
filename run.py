@@ -1,13 +1,5 @@
 from app.sign_up import sign_up
-#from app.login import log_in, log_out
-
-def log_in():
-    pass
-
-
-def log_out():
-    pass
-
+from app.auth import log_in, log_out
 
 def run_main():
     print(""" 
