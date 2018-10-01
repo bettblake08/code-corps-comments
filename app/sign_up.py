@@ -1,6 +1,5 @@
 import re
-
-users = []
+from db import users
 
 def sign_up():
     print("Please input your details:")
@@ -10,6 +9,7 @@ def sign_up():
     roleId = enter_role()
 
     users.append({
+        "id":len(users) + 1,
         "username":name,
         "password":password,
         "role":roleId,
