@@ -30,6 +30,7 @@ class Reply(object):
 
     def postReply(self, comment_id):
         comment_to_reply = self.get_by_id(comment_id)
+        
         if not comment_to_reply:
             print("Invalid comment id")
         else:
