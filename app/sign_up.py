@@ -7,6 +7,11 @@ def sign_up():
     name = enter_name()
     password = enter_password()
     roleId = enter_role()
+    
+    for user in users:
+        if user['username'] == name:
+            print("User already exists! ")
+            return 
 
     users.append({
         "id":len(users) + 1,
@@ -18,7 +23,7 @@ def sign_up():
     })
 
     print("Sign up succeeded!")
-
+    
 def enter_name():
     name = raw_input("What is your name? ")
 

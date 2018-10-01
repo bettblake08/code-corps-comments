@@ -7,30 +7,49 @@ def log_in():
 
     username = raw_input('Enter your name: ')
     password = raw_input('Enter your password: ')
-    #check in dict for user
-    for user in users:
-        if user['username'] == username:
-            if user['password'] == password:
-                #update status to True
-                user['status'] = True
 
-                #get user details
-                id = user['id']
-                username = user['username']
-                role = user['role']
-                status = user['status']
-                user = [id, username, role, status]
-                message = 'You are successfully logged in'
-                return True
-            else:
-                message = "Ooops! Wrong Password"
-
-            break
+    try:
+        if username == "":
+            message = "Username Field required"
+        elif " " in username:
+            message = "No empty spaces"
+        elif password == "":
+            message = "Password Field required"
+        elif " " in password:
+            message = "No empty spaces"
         else:
-            message = "Ooops! No user with that Name"
+            #check in dict for user
+            for user in users:
+                if user['username'] == username:
+                    if user['password'] == password:
+                        #update status to True
+                        user['status'] = True
+
+                        #get user details
+                        id = user['id']
+                        username = user['username']
+                        role = user['role']
+                        status = user['status']
+                        message = 'You are successfully logged in'
+                        return True
+                    else:
+                        message = "Ooops! Wrong Password"
+
+                    break
+                else:
+                    message = "Ooops! No user with that Name"
+
+
+    except Exception as e:
+        message = "please provide all the fields, missing " + str(error)
 
     print(message)
     print('*******************************************************************')
+
+def logged_in_user():
+    for user in users:
+        if user['status'] == True:
+            return user
 
 def log_out():
     """Logout"""
