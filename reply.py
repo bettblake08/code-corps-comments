@@ -35,30 +35,33 @@ class Reply(object):
         else:
             message = raw_input("Enter reply message: ")
             time = self.timestamp
-            author = self.userDetails['author']
-            reply_message = {'Message': message,
-                             'Time': time, 'Author': author}
-            comment.append(reply_message)
+            user = self.get_user()
+            author = user['author']
+            reply_message = {'Reply': message,
+                             'Time': time, 'Author': author, 'Comment id': comment_id}
+            rep = self.comments.append(reply_message)
+            print(self.comments)
 
     def edit(self, comment_id):
         comment_to_edit = self.get_by_id(comment_id)
-        if not comment_to_reply:
+        if not comment_to_edit:
             print("Invalid comment id")
         else:
-            if self.get_user == False:
+            user = self.get_user()
+            if user == False:
                 print("Not loggedIn")
-            elif (self.get_user['author'] == 'dennis') and (self.get_user['role'] == 1):
+            elif (user['author'] == 'dennis') and (user['role'] == 1):
                 message == raw_input("Enter edit message: ")
                 if not message:
                     print("Message can't be blank")
                 comment_to_edit['Message'] = message
-            elif (self.get_user['author'] == 'moderator') and (self.get_user['role'] == 2):
+            elif (user['author'] == 'moderator') and (user['role'] == 2):
                 message == raw_input("Enter reply")
                 comment_to_edit['Message'] = message
                 if not message:
                     print("Message can't be blank")
                 comment_to_edit['message'] = message
-            elif self.get_user['role'] == 3:
+            elif user['role'] == 3:
                 message == raw_input("Enter reply: ")
                 if not message:
                     print("Message can't be blank")
@@ -68,7 +71,7 @@ class Reply(object):
 
     def delete(self, comment_id):
         comment_to_delete = self.get_by_id(comment_id)
-        if not comment_to_reply:
+        if not comment_to_delete:
             print("Invalid comment id")
         else:
             if self.get_user == False:
@@ -80,5 +83,3 @@ class Reply(object):
 
 rep = Reply()
 rep.postReply(1)
-rep.edit(1)
-rep.delete(1)
