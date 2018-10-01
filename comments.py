@@ -96,13 +96,11 @@ data_edited = {'id':1, 'author_id':1, 'message':'I already had a comment', 'time
 comment = Comment(data)
 comment.save()
 
-
-
 comment2 = comment.edit(data_edited,1)
-comment3 = comment.delete(1)
+# comment3 = comment.delete(1)
 
 
-print(comment3)
+print(comment2)
         
 
         
