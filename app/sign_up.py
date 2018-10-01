@@ -70,5 +70,3 @@ def enter_role():
         enter_role()
 
     return roleId
-
-sign_up()
