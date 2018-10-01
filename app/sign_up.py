@@ -1,6 +1,5 @@
 import re
-
-users = []
+from db import users
 
 def sign_up():
     print("Please input your details:")
@@ -10,6 +9,7 @@ def sign_up():
     roleId = enter_role()
 
     users.append({
+        "id":len(users) + 1,
         "username":name,
         "password":password,
         "role":roleId,
@@ -31,10 +31,11 @@ def enter_name():
 
 def enter_password():
     password = raw_input(
-        "What is your password? Password should include 1 uppercase,1 lowercase, 1 digit and 1 special character [@$#.]")
+        "What is your password?")
 
     if password == "" or not test_password(password):
-        print("Invalid password")
+        print(
+            "Invalid password. Password should include 1 uppercase,1 lowercase, 1 digit and 1 special character [@$#.]")
         enter_password()
 
     return password
@@ -69,5 +70,3 @@ def enter_role():
         enter_role()
 
     return roleId
-
-sign_up()
