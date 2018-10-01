@@ -3,7 +3,6 @@ from db import users
 def log_in():
     """Login"""
     print('*******************************Login*******************************')
-    #get data from data structure
 
     username = raw_input('Enter your name: ')
     password = raw_input('Enter your password: ')
