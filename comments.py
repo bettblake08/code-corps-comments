@@ -99,14 +99,4 @@ comment.save()
 comment2 = comment.edit(data_edited,1)
 # comment3 = comment.delete(1)
 
-
 print(comment2)
-        
-
-        
-        
-
-
-        
-
-
