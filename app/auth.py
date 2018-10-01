@@ -18,7 +18,7 @@ def log_in():
                 username = user['username']
                 role = user['role']
                 status = user['status']
-                user = [id, username, role, status]
+                 = [{'id': id, ''username, role, status]
                 message = 'You are successfully logged in'
                 return True
             else:
@@ -30,6 +30,12 @@ def log_in():
 
     print(message)
     print('*******************************************************************')
+
+def logged_in_user():
+    for user in users:
+        if user['status'] == True:
+            return user
+
 
 def log_out():
     """Logout"""
