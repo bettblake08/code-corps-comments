@@ -20,7 +20,8 @@ class Comment:
         if self.user['status'] == 'loggedin':
             return True
         return False
-        
+    
+    # save data 
     def save(self):
         if self.authenticated:
             self.list.append(self.data)
@@ -42,24 +43,20 @@ class Comment:
             comment_to_edit = self.get_by_id(id)
             
             if comment_to_edit:
-                if self.user['role'] == 2:
-                    print('moderator cannot edit comment')
-                elif (self.user['role']  or self.user['role'] ) and self.authenticated:
+                if (self.user['role']  or self.user['role'] ) and self.authenticated:
                     comment_to_edit.update(self.data) 
                     print(comment_to_edit)
                 elif self.authenticated() == False:
                     print ({"message":"please signin"})
             else:
                 print ("no item with id")
-        elif self.user['role'] :
+
+        elif self.user['role'] == 2:
             comment_to_edit = self.get_by_id(id)
             if comment_to_edit:
-                if (self.user['role'] and self.user['role'] ):
-                    comment_to_edit.update(self.data) 
-                    print(comment_to_edit)
-                elif self.user['role']:
-                    print("you cannot edit this comment")
-                elif self.authenticated() == False:
+                comment_to_edit.update(self.data) 
+                print(comment_to_edit)
+            elif self.authenticated() == False:
                     print ({"message":"please signin"})
             else:
                 print ("no item with id")
@@ -67,9 +64,7 @@ class Comment:
         elif self.user['role'] == 3:
             comment_to_edit = self.get_by_id(id)
             if comment_to_edit:
-                if (self.user['role'] == 1 and self.user['role']  == 2):
-                    print('moderator and normal user cannot edit comment')
-                elif self.user['role']  == 3:
+                if self.user['role']  == 3:
                     comment_to_edit.update(self.data) 
                     print(comment_to_edit)
                 elif self.authenticated() == False:
